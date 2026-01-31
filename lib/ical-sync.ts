@@ -41,7 +41,7 @@ export async function syncBookingComCalendar(cabinId: string): Promise<{
     const events = await ical.async.fromURL(cabin.ical_import_url);
 
     // Process each event
-    for (const [key, event] of Object.entries(events)) {
+    for (const [, event] of Object.entries(events)) {
       const vevent = event as ICalEvent;
       if (vevent.type !== 'VEVENT') continue;
 
